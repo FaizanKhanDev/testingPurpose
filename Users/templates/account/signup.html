@@ -1,0 +1,55 @@
+{% load socialaccount %}
+{% load widget_tweaks %}
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+ 
+    <link rel="stylesheet" type="text/css" href="{% static 'css/reg.css' %}">
+    <title>Registration</title>
+</head>
+<body>
+<form action="{% url 'humster_register' %}" method="POST" novalidate>
+                         <div class="container center">
+  <div class="registration-form-wrapper">
+    
+    <div class="registration-form-left-side">
+      <h1 class="app-name">Copy Trade Registration</h1>
+      <p class="login-info">First time here? Register now! It`s free and quick.</p>
+    </div>
+    
+    <div class="registration-form-right-side">
+      <h2 class="sign-up">Sign Up</h2>
+      <p>Please fill in this form to create an account.</p>
+      
+        <div class="field-wrapper">
+          {% csrf_token %}
+
+          {% for field in form.visible_fields %}
+                           <div class="form-group">
+                               {{ field.label_tag }}
+                                  {% render_field field class="form-control" %}
+                                    {% for error in field.errors %}
+                                      <span style="color:red">{{ error }}</span>
+                                    {% endfor %}
+          {% endfor %}
+         </div>
+        
+        
+        
+        <div>
+          <input class="submit-btn" type="submit" value="Sign Up">
+        </div>
+        
+    </div>
+<a href="{% provider_login_url "facebook" method="oauth2" %}">Facebook OAuth2</a>
+  </div>
+</div>
+                    </form>
+                     <script src="{% static 'js/reg.js' %}"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+</body>
+</html>

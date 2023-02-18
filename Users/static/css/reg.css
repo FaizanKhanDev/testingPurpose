@@ -1,0 +1,114 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  /*   font-size: 0; */
+/*   overflow-x: hidden; */
+}
+
+.container {
+  min-height: 100vh;
+  width: 100%;
+  background: url("../image/back2.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+}
+
+.center {
+  display: flex;
+  align-items: center; 
+  justify-content: center;
+}
+
+.registration-form-wrapper {
+  width: 800px;
+  max-width: 90%;
+  background: rgba(0, 0, 0, 0.7);
+}
+
+.registration-form-left-side, 
+.registration-form-right-side {
+  width: 50%;
+  float: left;
+  padding: 10px 20px;
+}
+
+@media only screen and (max-width: 600px) {
+  .registration-form-left-side, 
+  .registration-form-right-side {
+    width: 100%;
+    float: none;
+    padding: 10px 20px;
+    background: #0e0f15;
+  }
+}
+
+.registration-form-right-side {
+  background: #0e0f15;
+}
+
+.app-name, 
+.sign-up, 
+.container p {
+  color: white;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.app-name, 
+.sign-up {
+  margin-bottom: 10px;
+}
+
+.registration-form-right-side p {
+  padding-bottom: 15px;
+  margin-bottom: 15px;
+  border-bottom: 1px solid #f1f1f16e;
+}
+
+.field-wrapper {
+  margin-bottom: 10px;
+}
+
+.container label {
+  color: white;
+  font-family: Arial, Helvetica, sans-serif;
+  font-weight: bold;
+  display: inline-block;
+  margin: 3px 0px;
+}
+
+.container input {
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.field-wrapper input[type=text],
+.field-wrapper input[type=email],
+.field-wrapper input[type=password],
+.field-wrapper input[type=date] {
+  width: 100%;
+  padding: 10px;
+  border: none;
+  outline: none;
+}
+
+#gender-options-wrapper label {
+  margin-right: 10px;
+  font-weight: normal;
+}
+
+.submit-btn {
+  width: 100%;
+  padding: 14px 20px;
+  margin: 8px 0;
+  background-color: #2188bf;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: clamp(18px, 3vw,22px);
+  color: white;
+  border: none;
+  cursor: pointer;
+}
+
+.submit-btn:hover {
+  background-color: #2f97ce;
+}

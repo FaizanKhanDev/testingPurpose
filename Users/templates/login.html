@@ -1,0 +1,57 @@
+{% load widget_tweaks %}
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+ 
+    <link rel="stylesheet" type="text/css" href="{% static 'css/reg.css' %}">
+    <title>Copy Trade Login</title>
+</head>
+<body>
+                    <form action="{% url 'account_login' %}" method="POST" novalidate>
+                      {% csrf_token %}
+                         <div class="container center">
+  <div class="registration-form-wrapper">
+    
+    <div class="registration-form-left-side">
+      <h1 class="app-name">Copy Trade Login</h1>
+      <p class="login-info">Рады снова вас видеть!</p>
+    </div>
+    
+    <div class="registration-form-right-side">
+      <h2 class="sign-up">Login</h2>
+      <p>Please fill in this form to login an account.</p>
+      
+        <div class="field-wrapper">
+          {% for field in form.visible_fields %}
+                           <div class="form-group">
+                               {{ field.label_tag }}
+                                  {% render_field field class="form-control" %}
+                                    {% if messages%}
+                                      {% for message in messages %}
+                                        <span style="color:red">{{ message }}</span>
+                                      {% endfor %}
+                                     {% endif %}
+                         {% endfor %}
+         </div>
+        
+        
+        
+        <div>
+          <input class="submit-btn" type="submit" value="Login">
+        </div>
+            <li class="google">
+                    <a href="{% url 'google' %}">Login with Google</a>
+            </li>
+    </div>
+    
+  </div>
+</div>
+                    </form>
+                     <script src="{% static 'js/reg.js' %}"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+</body>
+</html>
